@@ -1,0 +1,32 @@
+<cu-custom bgColor="bg-cyan" isCustom="true" reLaunchComponent="{{reLaunchComponent}}">
+  <view slot="content">修改信息</view>
+</cu-custom>
+
+
+<form bindsubmit="formSubmit">
+  <view class='UCenter-bg bg-gradual-cyan'>
+    <button open-type="chooseAvatar" bindchooseavatar="bindchooseavatar" class="margin-top-xl" >
+      <image class="user-avatar " src="{{avatarUrl ? avatarUrl : userInfo.avatar}}" ></image>
+    </button>
+    <text class=" margin-top-xl">请输入您的英文名：</text>
+    <view class='text-xl'>
+      <input name="nickname" bindinput="nicknamevalue" class="nickname" type="nickname" placeholder="英文名" placeholder-style="color:#333" value="{{auth.nickName ? auth.nickName : userInfo.nickname}}"></input>
+
+    </view>
+
+  </view>
+
+
+  <view class="container padding-xl">
+
+
+    <view wx:if="{{!authorized}}">
+      <button open-type="chooseAvatar" bindchooseavatar="bindchooseavatar" class="cu-btn  bg-cyan shadow lg block  margin-top-xl"> 获取您的头像 </button>
+    </view>
+
+    <button class="cu-btn save-btn {{authorized ? 'bg-green' : 'bg-gray'}} lg block margin-top" form-type="submit">保存信息</button>
+
+
+  </view>
+
+</form>

@@ -1,0 +1,24 @@
+<scroll-view scroll-y >
+<view style='width:100%;height:56vh;'>
+  <image src='{{myroleInfo.image}}' mode='aspectFill' style="width: 100%;height: 100%;border-bottom-left-radius:50vw" ></image>
+</view>  
+<view class="padding flex flex-direction">
+  <view class="flex-sub text-left">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-black text-bold">我是{{myroleInfo.name}}，\n擅长{{myroleInfo.pronunciation}}。</text>
+      </view>
+      <view class="padding">{{myroleInfo.personal}}</view>
+    </view>
+    <navigator  class="flex flex-direction" url="{{userInfo.english_levels_id ? '/pages/chat/chat' : '/pages/set/index'}}" ><button class="cu-btn round bg-cyan margin-tb-sm lg shadow">开始对话</button></navigator>
+    
+    <navigator  class="flex flex-direction" url="/pages/set/index?role_index={{role_index}}" >
+    <button class="cu-btn round bg-white lg shadow">更换陪练
+      <view class="cu-avatar-group">
+        <view wx:for="{{roleInfo}}" wx:key="index" class="cu-avatar round sm" style="background-image:url({{item.avatar}});"  wx:if='{{index<3}}'></view>
+
+  </view>
+    </button></navigator>
+</view>
+  
+
+</scroll-view>

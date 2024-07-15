@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "welcome": "/pages/welcome/index",
+    "scene": "/pages/scene/index",
+    "auth": "/pages/auth/auth",
+    "my": "/pages/my/index"
+
+    
+  }
+}

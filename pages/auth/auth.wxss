@@ -1,0 +1,58 @@
+.UCenter-bg {
+  background-image: var(--gradualCyan);
+  color: var(--white);
+  background-size: cover;
+  height: 800rpx;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+.UCenter-bg .custom-text {
+  opacity: 0.8;
+}
+
+.UCenter-bg button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  background: none;
+  line-height: 1;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.UCenter-bg .user-avatar {
+  width: 380rpx;
+  height: 380rpx;
+  border-radius: 30rpx;
+  padding: none;
+  margin: 0;
+
+}
+
+.UCenter-bg .custom-image {
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 15rpx;
+}
+
+.UCenter-bg .nickname {
+  text-align: center;
+  border-bottom: 1rpx solid #fff;
+  line-height: 60rpx;
+  height: 60rpx;
+}
+
+.container {}
+
+.container .save-btn {
+  border: 1rpx solid rgb(214, 214, 214);
+}

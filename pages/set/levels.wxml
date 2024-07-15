@@ -1,0 +1,30 @@
+<cu-custom bgColor="bg-gradual-cyan" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">英语水平</view>
+</cu-custom>
+<form bindsubmit="formSubmit">
+  <view class="padding">
+    <radio-group class="block" name="level_id">
+      <view class="padding-top text-center" wx:for="{{englishLevelsInfo}}" wx:key="index">
+        <radio class="radio" value="{{item.id}}" checked="{{item.id === english_levels_id ? 'true' : ''}}">
+          <view class="radius shadow bg-white flex">
+            <view class="margin-sm">
+              <view class="bg-cyan padding-lg radius text-xxl">{{item.level_code}}</view>
+              <view class="text-sm margin-top-xs">{{item.related_exam_level}}</view>
+            </view>
+            <view class="margin-top-sm margin-right-sm margin-bottom-sm text-left">
+              <view class="text-lg">{{item.level_description}}</view>
+              <view class="text-sm">{{item.level_description_en}}</view>
+              <view class="margin-top-xs">{{item.abilities}}</view>
+            </view>
+          </view>
+        </radio>
+      </view>
+    </radio-group>
+
+
+    <button class="cu-btn save-btn  lg block margin-top bg-cyan" form-type="submit">保存信息</button>
+  </view>
+
+
+</form>

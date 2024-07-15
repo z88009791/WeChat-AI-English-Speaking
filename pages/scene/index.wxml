@@ -1,0 +1,11 @@
+<scroll-view scroll-y class="scrollPage">
+  <image src='{{baseUrl}}/uploads/app/SceneBg.png' mode='widthFix' class='png' style='width:100%;height:486rpx'></image>
+  <view class='nav-list'>
+    <navigator open-type="navigate" hover-class='none' url="/pages/chat/chat?scene_id={{item.id}}" style="background-image: url({{item.image}});" class="nav-li bg-cyan"  wx:for="{{scene}}" wx:key>
+      <view class="nav-title">{{item.scene}}</view>
+      <view class="nav-name">{{item.npc}}</view>
+      <text class='cuIcon-markfill'></text>
+    </navigator>
+  </view>
+  <view class='cu-tabbar-height'></view>
+</scroll-view>

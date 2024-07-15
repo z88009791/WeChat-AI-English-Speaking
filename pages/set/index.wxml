@@ -1,0 +1,22 @@
+<cu-custom bgColor="bg-gradual-cyan" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">选择陪练</view>
+</cu-custom>
+<swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="false" interval="50000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key="index" class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.image}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.video}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+    <view class="swiper-info">
+      <view class="swiper-title shadow-blur">{{item.name}} <text class="text-sm">( {{item.pronunciation}} )</text></view>
+      <view class="swiper-description shadow-blur">{{item.personal}}</view>
+      <navigator class="content" url="/pages/set/levels?role_id={{item.id}}&index={{index}}" hover-class="none">
+        <button class="cu-btn bg-gradual-cyan margin-tb-sm lg"> 选择{{item.sex === '男' ? '他' : '她'}}{{index === 0 ? '（当前）' : ''}}
+        </button>
+      </navigator>
+
+
+    </view>
+  </swiper-item>
+</swiper>

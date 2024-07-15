@@ -1,0 +1,76 @@
+<template name="playTemplate">
+  <view class="cu-item" wx:if="{{type === 'answer'}}" id="question" id="chatitem{{i}}">
+    <view class="cu-avatar radius" style="background-image:url({{role_avatar}});"></view>
+    <view class="main">
+      <view class="content shadow">
+        <view class="play play1on"></view> {{duration}}
+      </view>
+      <view class="margin-xs text-grey">
+        <text class="cuIcon-title text-red text-xxl"></text> <text class="totext"> 转文字</text>
+      </view>
+      <view class="english shadow" hidden="{{isHidden}}">{{text}}</view>
+    </view>
+    <view class="tip"><text class="cuIcon-info text-cyan" bindtap="showModal" data-target="Modal"></text> 获取提示</view>
+  </view>
+
+
+
+
+
+  <view class="cu-item self" wx:else>
+    <view class="main">
+      <view class="content bg-cyan shadow">
+        {{duration}}
+        <image class="play play2off"></image>
+      </view>
+    </view>
+    <view class="cu-avatar radius" style="background-image:url({{user_avatar}});"></view>
+  </view>
+</template>
+
+
+
+<template name="modalTemplate">
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">英语小提示</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-red"></text>
+        </view>
+      </view>
+      <view class="padding-xl">
+        <text>{{advice}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+
+
+<template name="backmodalTemplate">
+  <view class="cu-modal {{modalName=='BackModal'?'show':''}}">
+    <view class="cu-dialog">
+
+      <view class="padding-xl">
+        确定结束对话吗？
+      </view>
+      <view class="cu-bar bg-white justify-end">
+        <view class="action">
+          <button class="cu-btn line-cyan text-cyan" bindtap="hideModal">取消</button>
+          <button class="cu-btn bg-cyan margin-left" bindtap="closeChat">确定</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+
+
+
+<template name="loadModalTemplate">
+  <view class='cu-load load-modal' wx:if="{{loadModal}}" catchtap="noop" catchtouchstart="noop" catchtouchmove="noop" catchtouchend="noop">
+  <image src="{{baseUrl ? baseUrl + '/uploads/app/loading.gif' : ''}}" class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>
+</template>

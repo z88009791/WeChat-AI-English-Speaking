@@ -1,0 +1,95 @@
+<import src="template.wxml" />
+
+<!-- 顶部导航栏 -->
+<view class="cu-custom" style="height:{{CustomBar}}px">
+  <view class="cu-bar fixed none-bg text-white bg-img bg-gradual-cyan" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class="action" bindtap="showModal" data-target="BackModal">
+      <text class="cuIcon-back"></text> 返回
+    </view>
+    <view class="{{typing ? 'cu-load load-icon loading' : ''}} content" style="top:{{StatusBar}}px">
+      
+      {{typing ? '对方正在输入...' : role.name}}
+    </view>
+  </view>
+</view>
+
+<view class="cu-chat" id="chat">
+  <!-- 如果存在模拟场景 -->
+  <block wx:if="{{scene}}">
+    <view class="cu-item" style="margin-bottom: -60rpx;">
+      <view class="cu-avatar radius" style="background-image:url({{role.avatar}});"></view>
+      <view class="main">
+        <view class="content shadow" style="width:600rpx;padding: 20rpx;line-height: 50rpx;">
+          HI，我将扮演{{scene.scene}}模拟场景下的{{scene.npc}}，帮助您提升该模拟场景的英语水平。
+        </view>
+      </view>
+    </view>
+    <view class="cu-item" style="margin-bottom: -60rpx;">
+      <view class="cu-avatar radius" style="background-image:url({{role.avatar}});"></view>
+      <view class="main">
+        <image src="{{scene.image}}" class="radius" mode="widthFix" style="width:410rpx;"></image>
+      </view>
+    </view>
+  </block>
+
+  <!-- 聊天记录 -->
+  <view wx:for="{{chathistoryData}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+    <!-- 答 -->
+    <view class="cu-item" wx:if="{{item.role === 'assistant'}}">
+      <view class="cu-avatar radius" style="background-image:url({{role.avatar}});"></view>
+      <view class="main">
+        <view class="content shadow" bindtap="toggleAudio" data-url="{{item.audio}}" data-index="{{index}}">
+          <view class="play play1{{item.play}}"></view>
+          <text>{{item.duration}}</text>
+        </view>
+        <view class="margin-xs text-grey">
+          <text class="cuIcon-title text-red text-xxl" wx:if="{{item.unread}}"></text>
+          <text class="totext" data-index="{{index}}" bindtap="totext" wx:if="{{item.totext}}">转文字</text>
+        </view>
+        <view style="width:100%;">
+          <view class="english shadow" wx:if="{{!item.totext}}">{{item.content}}</view>
+        </view>
+      </view>
+      <view class="tip" bindtap="showModal" data-target="Modal" data-string="{{item.advice}}">
+        <text class="cuIcon-info text-cyan"></text> 获取提示
+      </view>
+    </view>
+
+    <!-- 问 -->
+    <view class="cu-item self" wx:else>
+      <view class="main">
+        <view class="content bg-cyan shadow" bindtap="toggleAudio" data-url="{{item.tempFilePath ? item.tempFilePath : item.audio}}" data-index="{{index}}">
+          <block wx:if="{{item.duration}}">{{item.duration}} 's</block>
+          <image class="play play2{{item.play}}"></image>
+        </view>
+      </view>
+      <view class="cu-avatar radius" style="background-image:url({{userInfo.avatar}}); width: 80rpx; height: 80rpx; min-width: 80rpx; min-height: 80rpx;"></view>
+    </view>
+  </view>
+</view>
+
+<!-- 底部操作栏 -->
+<view class="cu-bar bg-white foot {{InputBottom != 0 ? 'cur' : ''}}" style="bottom:{{InputBottom}}px">
+  <view class="cu-btn lg rounds" catch:longpress="handleRecordStart" catch:touchmove="handleTouchMove" catch:touchend="handleRecordStop">
+    按住 说话
+  </view>
+</view>
+
+<!-- 录音状态 -->
+<view class="record {{cancelrecord ? 'bg-grey light' : 'bg-cyan'}}" wx:if="{{recording}}">
+  <view wx:for="{{[1,3,5,4,8,6,10,5,12,16,13,20,15,18,10,3,7,2,4,7,3,1]}}" wx:for-index="index" wx:for-item="item" key="{{index}}">
+    <view class="recording" style="height:{{item * 3}}rpx"></view>
+  </view>
+  <view class="stopwatch">{{seconds}}.{{milliseconds}}"</view>
+</view>
+<view class="cancelrecord" wx:if="{{recording}}">
+  <view class="cuIcon-close {{cancelrecord ? 'bg-red' : 'bg-black'}}">
+    <text class="text-gray"></text>
+  </view>
+  <view class="text-white" wx:if="{{cancelrecord}}">取消录音</view>
+</view>
+
+<!-- 模板引用 -->
+<template is="loadModalTemplate" data="{{loadModal: loadModal, baseUrl: baseUrl}}" />
+<template is="backmodalTemplate" data="{{modalName: modalName}}" />
+<template is="modalTemplate" data="{{modalName: modalName, advice: advice}}" />

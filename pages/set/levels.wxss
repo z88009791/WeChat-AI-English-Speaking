@@ -1,0 +1,22 @@
+/* pages/set/levels.wxss */
+
+.radio{ }
+.radio .wx-radio-input {
+  display: none; /* 隐藏圆点 */
+  
+}
+radio.radio[checked]::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 0rpx;
+  border: 2px solid var(--cyanLight)  !important;
+}
+
+radio.radio[checked] view {
+  background-color:var(--cyan) ;
+  color: #fff;
+}
+radio.radio[checked] view .bg-cyan{
+  background-color:#fff;
+  color:var(--cyan) ;
+}

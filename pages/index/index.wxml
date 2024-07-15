@@ -1,0 +1,25 @@
+<welcome wx:if="{{PageCur=='welcome'}}"  callback='{{callback}}'></welcome>
+<scene wx:if="{{PageCur=='scene'}}" callback='{{callback}}'></scene>
+<my wx:if="{{PageCur=='my'}}"  callback='{{callback}}'></my>
+
+<view class="cu-bar tabbar bg-white shadow foot">
+  <view class="action" bindtap="NavChange" data-cur="welcome">
+    <view class='cuIcon-cu-image'>
+      <image src="{{baseUrl}}/uploads/tabbar/chat{{PageCur=='welcome'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='welcome'?'text-cyan':'text-gray'}}">对话</view>
+  </view>
+  <view class="action" bindtap="NavChange" data-cur="scene">
+    <view class='cuIcon-cu-image'>
+      <image src="{{baseUrl}}/uploads/tabbar/scene{{PageCur=='scene'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='scene'?'text-cyan':'text-gray'}}">场景</view>
+  </view>
+  
+  <view class="action" bindtap="NavChange" data-cur="my">
+    <view class='cuIcon-cu-image'>
+      <image src="{{baseUrl}}/uploads/tabbar/my{{PageCur=='my'?'_cur':''}}.png"></image>
+    </view>
+    <view class="{{PageCur=='my'?'text-cyan':'text-gray'}}">我的</view>
+  </view>
+</view>
