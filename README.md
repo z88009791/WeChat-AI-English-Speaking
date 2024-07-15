@@ -15,14 +15,14 @@
 <p><b>AI大模型:  </b>阿里通义万象/Chatgpt(可选)</p>
 <p><b>其他:  </b>阿里云OSS、阿里云TTS、阿里云语音识别</p>
 <h1>页面截图：</h1>
-<img src="https://www.ifruitlet.cn/demo/1.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/2.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/3.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/4.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/5.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/6.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/7.jpg" width=180/>
-<img src="https://www.ifruitlet.cn/demo/8.jpg" width=180/>
+<img src="https://www.ifruitlet.cn/demo/1.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/2.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/3.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/4.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/5.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/6.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/7.jpg" width=180 style="float:left"/>
+<img src="https://www.ifruitlet.cn/demo/8.jpg" width=180 style="float:left"/>
 <h1>演示：</h1>
 <h3>微信搜索小程序"i果英语"</h3>
 <img src="https://www.ifruitlet.cn/demo/0.jpg" width=180/>
